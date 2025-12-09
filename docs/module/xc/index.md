@@ -8,6 +8,6 @@ import { useRouter } from 'vitepress'
 
 const router = useRouter()
 onMounted(() => {
-  router.go('/module/xc/1')
+  router.go('/module/xc/vitepress gitHub pages部署')
 })
 </script>

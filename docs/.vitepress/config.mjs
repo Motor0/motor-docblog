@@ -8,7 +8,7 @@ export default defineConfig({
 
   themeConfig: {
     logo: "logo.svg",  // 站点 logo
-    base: '/motor-docblog/',
+    base: '/motor-docblog/', //部署到github pages上需要到
 
     // 导航栏配置：使用 getNavLink 获取无缝跳转链接
     nav: [
@@ -47,7 +47,7 @@ export default defineConfig({
         text: 'MODULE FIVE',
         items: [
           { text: 'Linux', link: getNavLink('/module/linux/') },  //更改路由需要到auto-gen.mjs中进行对应的修改(路由修改)
-          { text: '其他资料', link: getNavLink('/module/xc/') },
+          { text: '关于部署的问题', link: getNavLink('/module/xc/') },
         ]
       }
     ],

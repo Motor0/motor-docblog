@@ -17,7 +17,7 @@ const SCAN_MAP = [
     { routePrefix: '/python/base/', dir: 'python/base', title: 'Python 基础' },
 
     { routePrefix: '/module/linux/', dir: 'module/linux', title: 'Linux' },
-    { routePrefix: '/module/xc/', dir: 'module/xc', title: '其他资料' },
+    { routePrefix: '/module/xc/', dir: 'module/xc', title: '关于部署的问题' },
 ]
 
 /** 格式化标题：可在此自定义逻辑（如去除数字前缀） */
