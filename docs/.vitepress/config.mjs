@@ -8,6 +8,7 @@ export default defineConfig({
 
   themeConfig: {
     logo: "logo.svg",  // 站点 logo
+    base: '/motor-docblog/',
 
     // 导航栏配置：使用 getNavLink 获取无缝跳转链接
     nav: [
