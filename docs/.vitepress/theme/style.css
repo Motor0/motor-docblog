@@ -1,0 +1,200 @@
+/**
+ * Customize default theme styling by overriding CSS variables:
+ * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
+ */
+
+/**
+ * Colors
+ *
+ * Each colors have exact same color scale system with 3 levels of solid
+ * colors with different brightness, and 1 soft color.
+ *
+ * - `XXX-1`: The most solid color used mainly for colored text. It must
+ *   satisfy the contrast ratio against when used on top of `XXX-soft`.
+ *
+ * - `XXX-2`: The color used mainly for hover state of the button.
+ *
+ * - `XXX-3`: The color for solid background, such as bg color of the button.
+ *   It must satisfy the contrast ratio with pure white (#ffffff) text on
+ *   top of it.
+ *
+ * - `XXX-soft`: The color used for subtle background such as custom container
+ *   or badges. It must satisfy the contrast ratio when putting `XXX-1` colors
+ *   on top of it.
+ *
+ *   The soft color must be semi transparent alpha channel. This is crucial
+ *   because it allows adding multiple "soft" colors on top of each other
+ *   to create an accent, such as when having inline code block inside
+ *   custom containers.
+ *
+ * - `default`: The color used purely for subtle indication without any
+ *   special meanings attached to it such as bg color for menu hover state.
+ *
+ * - `brand`: Used for primary brand colors, such as link text, button with
+ *   brand theme, etc.
+ *
+ * - `tip`: Used to indicate useful information. The default theme uses the
+ *   brand color for this by default.
+ *
+ * - `warning`: Used to indicate warning to the users. Used in custom
+ *   container, badges, etc.
+ *
+ * - `danger`: Used to show error, or dangerous message to the users. Used
+ *   in custom container, badges, etc.
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-c-default-1: var(--vp-c-gray-1);
+  --vp-c-default-2: var(--vp-c-gray-2);
+  --vp-c-default-3: var(--vp-c-gray-3);
+  --vp-c-default-soft: var(--vp-c-gray-soft);
+
+  --vp-c-brand-1: var(--vp-c-indigo-1);
+  --vp-c-brand-2: var(--vp-c-indigo-2);
+  --vp-c-brand-3: var(--vp-c-indigo-3);
+  --vp-c-brand-soft: var(--vp-c-indigo-soft);
+
+  --vp-c-tip-1: var(--vp-c-brand-1);
+  --vp-c-tip-2: var(--vp-c-brand-2);
+  --vp-c-tip-3: var(--vp-c-brand-3);
+  --vp-c-tip-soft: var(--vp-c-brand-soft);
+
+  --vp-c-warning-1: var(--vp-c-yellow-1);
+  --vp-c-warning-2: var(--vp-c-yellow-2);
+  --vp-c-warning-3: var(--vp-c-yellow-3);
+  --vp-c-warning-soft: var(--vp-c-yellow-soft);
+
+  --vp-c-danger-1: var(--vp-c-red-1);
+  --vp-c-danger-2: var(--vp-c-red-2);
+  --vp-c-danger-3: var(--vp-c-red-3);
+  --vp-c-danger-soft: var(--vp-c-red-soft);
+}
+
+/**
+ * Component: Button
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-text: var(--vp-c-white);
+  --vp-button-brand-bg: var(--vp-c-brand-3);
+  --vp-button-brand-hover-border: transparent;
+  --vp-button-brand-hover-text: var(--vp-c-white);
+  --vp-button-brand-hover-bg: var(--vp-c-brand-2);
+  --vp-button-brand-active-border: transparent;
+  --vp-button-brand-active-text: var(--vp-c-white);
+  --vp-button-brand-active-bg: var(--vp-c-brand-1);
+}
+
+/**
+ * Component: Home
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(120deg,
+      #bd34fe 30%,
+      #41d1ff);
+
+  --vp-home-hero-image-background-image: linear-gradient(-45deg,
+      #bd34fe 50%,
+      #47caff 50%);
+  --vp-home-hero-image-filter: blur(44px);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --vp-home-hero-image-filter: blur(56px);
+  }
+}
+
+@media (min-width: 960px) {
+  :root {
+    --vp-home-hero-image-filter: blur(68px);
+  }
+}
+
+/**
+ * Component: Custom Block
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-custom-block-tip-border: transparent;
+  --vp-custom-block-tip-text: var(--vp-c-text-1);
+  --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
+  --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
+}
+
+/**
+ * Component: Algolia
+ * -------------------------------------------------------------------------- */
+
+.DocSearch {
+  --docsearch-primary-color: var(--vp-c-brand-1) !important;
+}
+
+
+/**
+背景图片设置
+**/
+
+/*第一种方式*/
+/* docs/.vitepress/theme/style.css */
+
+/* 仅在首页 + 日间模式下显示背景图 */
+/* .VPHome:not(.dark) {
+  background-image: url('/bg.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+} */
+
+/* 可选：给内容加半透明白色遮罩，提升可读性 */
+/* .VPHome:not(.dark) .VPContent {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 24px;
+  border-radius: 8px;
+  max-width: 800px;
+  margin: 0 auto;
+} */
+
+/* docs/.vitepress/theme/style.css */
+
+
+/*第二种方式*/
+
+/* * * 默认状态（即日间模式） 
+ */
+/* body {
+  /* 引用 public 目录下的图片，直接用 / 开头即可 */
+/* background-image: url('/bg.png'); */
+
+/* 图片铺满屏幕，不重复，且固定不动（视差效果） */
+/* background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover; */
+/* }  */
+
+/** * 夜间模式（Dark Mode） 
+ * 必须把背景图去掉，否则切换到黑夜模式可能会很丑
+ */
+/* .dark body {
+  background-image: none; */
+/* 如果你想在夜间模式用另一张图，可以在这里写: url('/bg-dark.png') */
+/* } */
+
+/* --- 进阶：让内容区域半透明 --- */
+/* 如果背景图太好看，不想被白色的内容背景完全遮住，
+   可以将 VitePress 的默认背景色变量设为半透明 */
+
+/* :root { */
+/* 这里的 0.8 表示 80% 不透明度的白色，让背景图隐约透出来 */
+/* --vp-c-bg: rgba(255, 255, 255, 0.8);
+} */
+
+/* 保持夜间模式背景为纯黑（或者你自己调整） */
+/* .dark {
+  --vp-c-bg: #1b1b1f;
+} */
