@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress'
 import { sidebarObj, getNavLink } from './auto-gen.mjs'  //自动生成侧边栏
 
 export default defineConfig({
-  title: "文档记录",
+  title: "博客-文档站",
   description: "Be Water, My friends",
   base: '/motor-docblog/',
 
